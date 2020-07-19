@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %} 
+
+
+<h1>List of blog</h1>
+
+{% for blog in allblogs %} <!-- for-loop, for viewing content of blog -->
+
+
+<h4>{{ blog.title}}</h4> <!-- double curlybraces for variables data -->
+
+<p>{{ blog.contents}}</p>
+
+<p>{{ blog.author}}</p>
+
+<img src="{{blog.image.url}}" width='200'>
+
+<a href="/blog/{{blog.id}}/update/">Update</a>
+<a href="/blog/{{blog.id}}/delete/">Delete</a>
+
+
+					
+  					
+
+{% endfor %}
+
+{% endblock %}

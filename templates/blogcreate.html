@@ -1,0 +1,40 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+	<div class='col-md-6'>
+		<h1>Add new blog</h1>   
+		 	<form method='POST' enctype="multipart/form-data">
+		 
+		    {% csrf_token %} 	
+
+		    {{ form.as_p}}	
+		    <button>submit</button>
+		</form>  
+	</div>
+	<div class='col-md-6'>
+		<h1> blogs</h1>   
+		{% for blog in blogs|slice:'3' %}
+		<div class="row">
+			<div class=col-md-6>
+				<img src="{{blog.image.url}}" class="img-fluid">
+				
+			</div>
+
+			<div class="col-md-6">
+				
+			
+				<li>{{blog.title}}</li>
+			</div>
+
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+
+
+
+{% endblock %}
+ <!-- by default get method enctype for  media files(image,pdf,audio) -->

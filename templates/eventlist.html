@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static%}
+
+{% block content %}
+<h1>List of Events</h1>
+{% for event in allevent%}
+
+<h1>{{ event.title}}</h1>
+
+<p>{{ event.contents}}</p>
+
+<img src="{{event.image.url}}" width='200'>
+<br>
+<br>
+
+
+{% endfor %}
+
+{% endblock %}
+
+

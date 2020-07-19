@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+<h3>Searched Blog</h3>
+
+{% for blog in searchblogs %}
+
+
+
+<li><a href="{% url 'blogapp:bloglist' %}"><li>{{blog.title}}</li></a></li>
+<p>{{blog.contents|truncatewords:'20'}}</p>
+
+
+
+
+{% empty %}                                   <!--  #for non keywords searched keyword -->
+<h3>No results found...</h3>
+
+
+
+{% endfor %}
+
+
+
+
+<h3>Searched News</h3>
+
+{% for news in searchednews %}
+
+
+
+<li><a href="{% url 'blogapp:newslist' %}">{{news.title}}</a></li>
+<p>{{news.detail|truncatewords:'20'}}</p>
+
+
+
+
+{% empty %}                                   <!--  #for non keywords searched keyword -->
+<h3>No results found...</h3>
+
+
+
+{% endfor %}
+
+
+
+
+
+
+{% endblock %}

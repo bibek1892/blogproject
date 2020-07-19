@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load static%}
+
+{% block content %}
+
+
+<h1>List of news</h1>
+
+{% for news in allnews %} <!-- for-loop, for viewing content of news-->
+
+
+<h4>{{ news.title}}</h4> <!-- double curlybraces for variables data -->
+
+
+<p>{{ news.detail}}</p>
+
+<img src="{{news.image.url}}" width='200'>
+
+<a href="/News/{{news.id}}/update/">Update</a>
+<a href="/News/{{news.id}}/delete/">Delete</a>
+
+{% endfor %}
+
+{% endblock %}
+
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content%}
+
+<h3>Hello, This is Content Page !!!</h3>
+<form method="POST">
+	{% csrf_token %}
+	
+	{{form.as_p}}
+	<button>SUbmit data</button>
+
+
+
+</form>
+
+
+{% endblock%}

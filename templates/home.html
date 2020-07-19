@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content%}
+
+<h3>Hello, This is Homepage !!!</h3>
+<br>
+<h1>Name of the Blog</h1>
+{% for blog in blogs %}
+<li>{{blog.title}}</li>
+
+{% endfor %}
+
+<h1>Name of the Event</h1>
+
+
+{% for event in events %}
+<li>{{event.title}}</li>
+
+{% endfor %}
+
+
+{% endblock%}

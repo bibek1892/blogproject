@@ -1,0 +1,39 @@
+	{% extends 'base.html' %}
+	{%  load static %}
+
+
+
+	{% block content %}
+
+	{{blog.title}}(viewed {{blog.view_count}} times	)
+
+
+
+	<h3>{{blogdetail.title}}</h3>
+
+	<h3><img src="{{blogdetail.image.url}}">image</h3>
+
+	<h3>{{blogdetail.content}}</h3>
+
+	<a href="/blog/{{blogdetail.pk}}/update">Update</a>
+	<a href="/blog/{{blogdetail.pk}}/delete">delete</a>
+
+
+	<h1>All comments</h1>
+
+
+	{% for comment in blogdetail.comment_set.all %}
+	<li>{{comment.user}}</li>
+	<li>{{comment.message}}</li>
+	{% endfor %}
+	<form method="post" action="{% url 'blogapp:comment' blogdetail.id %}">
+		{% csrf_token %}
+		{{commentform.as_p}}
+		<button>submit</button>
+		
+
+	</form>
+
+
+
+	{% endblock %}
